@@ -1,0 +1,32 @@
+$cBg: #0d0c22;
+$cText: #fff;
+$cBgSoft: #2d2b42;
+$cTextSoft: #e5e5e5;
+$cBtn: #3673fd;
+
+body{
+    background-color: $cBg;
+    color: $cText;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all .3s ease;
+}
+
+ul{
+    list-style: none;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1536px;
+    width: 100%;
+    padding: 0 12px;
+}

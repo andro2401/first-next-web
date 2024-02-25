@@ -1,0 +1,43 @@
+.mainHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  .logo{
+    padding: 20px 20px 20px 0;
+  }
+}
+.mainNav{
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    li{
+      position: relative;
+      a{
+        padding: 20px 30px;
+        border-radius: 20px;
+        &.active{
+          background: #fff;
+          color: #0d0c22;
+        }
+      }
+    }
+  }
+  .log-out{
+    padding: 20px 30px;
+    background: #fff;
+    color: #0d0c22;
+    outline: 0;
+    border: 0;
+    margin-left: 5px;
+    transition: all .3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover{
+      color: #fff;
+      background: #0d0c22;
+    }
+  }
+}
