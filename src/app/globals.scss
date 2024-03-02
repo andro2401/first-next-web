@@ -31,3 +31,29 @@ ul{
     padding: 0 12px;
     position: relative;
 }
+
+.btn{
+    cursor: pointer;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    transition: all .3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    &.btn-primary{
+        background: $cBtn;
+        color: $cText;
+        &:hover{
+            color: $cBtn;
+            background: $cText;
+        }
+    }
+    &.btn-secondary{
+        color: $cBtn;
+        background: $cText;
+        &:hover{
+            color: $cText;
+            background: $cBtn;
+        }
+    }
+}

@@ -16,13 +16,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 5px;
     @media(max-width: 991px){
       display: none;
     }
     li{
       position: relative;
       a{
-        padding: 20px 30px;
+        padding: 10px 15px;
         border-radius: 20px;
         &.active{
           background: #fff;
@@ -32,12 +33,12 @@
     }
   }
   .log-out{
-    padding: 20px 30px;
+    padding: 10px 15px;
     background: #fff;
     color: #0d0c22;
     outline: 0;
     border: 0;
-    margin-left: 5px;
+    margin-left: 15px;
     transition: all .3s ease;
     cursor: pointer;
     font-weight: bold;
@@ -92,6 +93,7 @@
     width: 350px;
     right: 0;
     height: calc(100vh - 100px);
+    z-index: 1;
     &.opened{
       display: block;
     }

@@ -1,9 +1,13 @@
 import React from 'react';
-
 const Footer = () => {
     return (
-        <div>
-            This is the Footer
+        <div className="mainFooter">
+            <div className="logo">
+                Custom Logo
+            </div>
+            <div className="text">
+                Lama creative thoughts agency © All rights reserved.
+            </div>
         </div>
     );
 };

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div>
-            This is a Blog page
+        <div className="blog-page">
+
         </div>
     );
 };

@@ -1,0 +1,43 @@
+.about-wrapper{
+  display: flex;
+  padding: 50px 0;
+  gap: 100px;
+  .text-wrap{
+    width: 50%;
+    span{
+      color: $cBtn;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+    h1{
+      font-size: 50px;
+      color: $cText;
+      margin-bottom: 50px;
+    }
+    p{
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+    .feature{
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      .box{
+        h3{
+          color: $cBtn;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        p{
+          color: $cText;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .img-wrap{
+    position: relative;
+    width: 50%;
+  }
+}
