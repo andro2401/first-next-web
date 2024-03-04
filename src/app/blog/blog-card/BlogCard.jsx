@@ -19,7 +19,7 @@ const BlogCard = () => {
             <div className="text-part">
                 <h2>title</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
-                <Link href="/blog" className="blog-link">READ MORE</Link>
+                <Link href={`/blog`} className="blog-link">READ MORE</Link>
             </div>
         </div>
     );
