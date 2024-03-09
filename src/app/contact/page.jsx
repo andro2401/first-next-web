@@ -1,7 +1,12 @@
-import React from 'react';
+"use client";
+import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 
 const Contact = () => {
+    const clickHandler = (e) => {
+        e.preventDefault();
+
+    }
     return (
         <div className="contact-page">
             <div className="image-container">
@@ -30,7 +35,9 @@ const Contact = () => {
                         placeholder="Phone number (Optional)"
                     />
                     <textarea name="message" cols="5" rows="5" placeholder="Message"></textarea>
-                    <button className="btn btn-primary">Send</button>
+                    <button
+                        className="btn btn-primary"
+                    >Send</button>
                 </form>
             </div>
         </div>

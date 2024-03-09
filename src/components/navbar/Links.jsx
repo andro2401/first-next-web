@@ -35,7 +35,7 @@ const Links = () => {
         <div className="container">
             <ul>
                 {links.map(link => (
-                    <li key={link.index}>
+                    <li key={link.title}>
                         <Link
                             href={link.path}
                             className={`${pathName === link.path && 'active'}`}
@@ -44,11 +44,13 @@ const Links = () => {
                 ))}
                 {session ? (
                     <>
-                        {isAdmin && <Link href="/admin">Admin</Link>}
+                        {isAdmin && <li key="admin"><Link href="/admin">Admin</Link></li>}
                         <button className="log-out">Logout</button>
                     </>
                 ) : (
-                    <Link href="/login">Login</Link>
+                    <li key="login">
+                        <Link href="/login">Login</Link>
+                    </li>
                 )}
             </ul>
             <button onClick={toggleMenu} className={`hamburger ${open && 'active'}`}>
@@ -68,11 +70,15 @@ const Links = () => {
                     ))}
                     {session ? (
                         <>
-                            {isAdmin && <Link href="/admin">Admin</Link>}
+                            {isAdmin && <li key="adminMobile">
+                                <Link href="/admin">Admin</Link>
+                            </li>}
                             <button className="log-out">Logout</button>
                         </>
                     ) : (
-                        <Link href="/login">Login</Link>
+                        <li key="login">
+                            <Link href="/login">Login</Link>
+                        </li>
                     )}
                 </ul>
             </div>}

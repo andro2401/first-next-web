@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import Image from "next/image";
+import PostUser from "@/components/postUser/PostUser";
 
-const Singleblog = ({params}) => {
+const getData = async (slug) => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+    if (!response.ok){
+        throw new Error("Something went wrong");
+    }
+    return response.json();
+}
+
+const Singleblog = async ({params}) => {
+    const {slug} = params;
+    const post = await getData(slug);
     return (
         <div className="blog-preview">
             <div className="img-wrap">
@@ -11,7 +22,7 @@ const Singleblog = ({params}) => {
                 />
             </div>
             <div className="text-wrap">
-                <h1>Title of the single blog post preview</h1>
+                <h1>{post.title}</h1>
                 <div className="blog-details">
                     <div className="avatar-img">
                         <Image src="/noavatar.png"
@@ -19,16 +30,15 @@ const Singleblog = ({params}) => {
                                fill
                         />
                     </div>
-                    <div className="author-wrap">
-                        <span>Author</span>
-                        <p>Terry Hefferson</p>
-                    </div>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <PostUser userId={post.userId}/>
+                    </Suspense>
                     <div className="published-wrap">
                         <span>Published</span>
                         <p>-11-04T09:30</p>
                     </div>
                 </div>
-                <p>Desc</p>
+                <p>{post.body}</p>
             </div>
         </div>
     );

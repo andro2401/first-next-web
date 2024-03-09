@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogCard = () => {
+const BlogCard = ({post}) => {
     return (
         <div className="blog-card">
             <div className="top-part">
@@ -17,9 +17,9 @@ const BlogCard = () => {
                 <time>Nov 04 2023</time>
             </div>
             <div className="text-part">
-                <h2>title</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <Link href={`/blog`} className="blog-link">READ MORE</Link>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+                <Link href={`/blog/${post.id}`} className="blog-link">READ MORE</Link>
             </div>
         </div>
     );
