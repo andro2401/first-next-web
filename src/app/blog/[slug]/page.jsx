@@ -22,21 +22,16 @@ const Singleblog = async ({params}) => {
     const post = await getPost(slug);
     return (
         <div className="blog-preview">
-            <div className="img-wrap">
-                <Image src="/apstract.jpg"
+            {post.img && <div className="img-wrap">
+                <Image src={post.img}
                        alt="blog preview picture"
                        fill
                 />
-            </div>
+            </div>}
             <div className="text-wrap">
                 <h1>{post?.title}</h1>
                 <div className="blog-details">
-                    <div className="avatar-img">
-                        <Image src="/noavatar.png"
-                               alt="blog preview picture"
-                               fill
-                        />
-                    </div>
+
                     {post && (
                         <Suspense fallback={<div>Loading...</div>}>
                             <PostUser userId={post.userId}/>
@@ -44,7 +39,7 @@ const Singleblog = async ({params}) => {
                     )}
                     <div className="published-wrap">
                         <span>Published</span>
-                        <p>-11-04T09:30</p>
+                        <p>{post.createdAt.toString().slice(4,16)}</p>
                     </div>
                 </div>
                 <p>{post?.body}</p>

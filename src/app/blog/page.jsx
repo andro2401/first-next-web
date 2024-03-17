@@ -22,7 +22,7 @@ const Blog = async () => {
     return (
         <div className="blog-page">
             {posts.map((post) =>(
-                <BlogCard key={post.id} post={post} />
+                <BlogCard key={post.slug} post={post} />
             ))}
         </div>
     );

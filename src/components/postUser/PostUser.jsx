@@ -1,5 +1,6 @@
 import React from 'react';
 import {getUser} from "@/components/lib/data";
+import Image from "next/image";
 
 // TODO GET DATA WITH AN API
 // const getData = async (userId) => {
@@ -16,11 +17,20 @@ const PostUser = async ({userId}) => {
     // TODO GET datawithout an API
     const user = await getUser(userId);
     return (
-        <div className="author-wrap">
-            <span>Author</span>
-            <p>{user.username}</p>
-        </div>
-    );
+        <>
+            <div className="avatar-img">
+                <Image src={user.img ? user.img : "/noavatar.png"}
+                       alt="blog preview picture"
+                       fill
+                />
+            </div>
+            <div className="author-wrap">
+                <span>Author</span>
+                <p>{user.username}</p>
+            </div>
+        </>
+)
+    ;
 };
 
 export default PostUser;
