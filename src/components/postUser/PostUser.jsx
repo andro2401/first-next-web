@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUser} from "@/components/lib/data";
+import {getUser} from "@/lib/data";
 import Image from "next/image";
 
 // TODO GET DATA WITH AN API
@@ -16,6 +16,7 @@ const PostUser = async ({userId}) => {
 
     // TODO GET datawithout an API
     const user = await getUser(userId);
+
     return (
         <>
             <div className="avatar-img">

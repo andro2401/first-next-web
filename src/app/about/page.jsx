@@ -1,5 +1,10 @@
 import React from 'react';
 import Image from "next/image";
+
+export const metadata = {
+    title: 'About page',
+    description: 'About page description',
+}
 const About = () => {
     return (
         <div className="about-wrapper">

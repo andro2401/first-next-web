@@ -1,5 +1,5 @@
-import {Post, User} from "@/components/lib/models";
-import {connectToDb} from "@/components/lib/utils";
+import {Post, User} from "@/lib/models";
+import {connectToDb} from "@/lib/utils";
 import {unstable_noStore} from "next/cache";
 
 //TEMPORARY DATA
@@ -37,22 +37,22 @@ import {unstable_noStore} from "next/cache";
 
 export const getPosts = async () => {
     try {
-        connectToDb();
+        await connectToDb();
         const posts = await Post.find();
         return posts;
     } catch (e) {
-        console.log(e);
+        console.error("Error fetching posts:", e);
         throw new Error("Failed to fetch Posts!");
     }
 }
 
 export const getPost = async (slug) => {
     try {
-        connectToDb();
-        const post = await Post.findOne({slug});
+        await connectToDb();
+        const post = await Post.findOne({ slug });
         return post;
     } catch (e) {
-        console.log(e);
+        console.error("Error fetching post:", e);
         throw new Error("Failed to fetch Post!");
     }
 }
@@ -60,22 +60,23 @@ export const getPost = async (slug) => {
 export const getUser = async (id) => {
     unstable_noStore();
     try {
-        connectToDb();
-        const user = await User.findById({id});
+        await connectToDb();
+        const user = await User.findById(id);
+        console.log(user);
         return user;
     } catch (e) {
-        console.log(e);
+        console.error("Error fetching user:", e);
         throw new Error("Failed to fetch User!");
     }
 }
 
 export const getUsers = async () => {
     try {
-        connectToDb();
+        await connectToDb();
         const users = await User.find();
         return users;
     } catch (e) {
-        console.log(e);
+        console.error("Error fetching users:", e);
         throw new Error("Failed to fetch Users!");
     }
 }

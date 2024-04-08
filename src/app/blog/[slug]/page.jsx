@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import Image from "next/image";
 import PostUser from "@/components/postUser/PostUser";
-import {getPost} from "@/components/lib/data";
+import {getPost} from "@/lib/data";
 
 
 // TODO Fetch data with an API
@@ -12,6 +12,16 @@ import {getPost} from "@/components/lib/data";
 //     }
 //     return response.json();
 // }
+
+export const generateMetadata = async ({params}) => {
+    const {slug} = params;
+    const post = await getPost(slug);
+
+    return {
+        title: post.title,
+        description: post.description
+    }
+}
 
 const Singleblog = async ({params}) => {
     const {slug} = params;
@@ -29,7 +39,7 @@ const Singleblog = async ({params}) => {
                 />
             </div>}
             <div className="text-wrap">
-                <h1>{post?.title}</h1>
+                <h1>{post.title}</h1>
                 <div className="blog-details">
 
                     {post && (
@@ -42,7 +52,7 @@ const Singleblog = async ({params}) => {
                         <p>{post.createdAt.toString().slice(4,16)}</p>
                     </div>
                 </div>
-                <p>{post?.body}</p>
+                <p>{post.description}</p>
             </div>
         </div>
     );
