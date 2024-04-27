@@ -3,9 +3,9 @@ import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 
 
-export const metadata = {
+const metadata = {
     title: 'Contact page',
-    description: 'contact description',
+    description: 'Contact page description',
 }
 const Contact = () => {
     const clickHandler = (e) => {
